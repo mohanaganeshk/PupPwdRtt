@@ -1,0 +1,272 @@
+
+Last updated: 22-Jan-2025 10.47 AM
+https://etherpad.opendev.org/p/r.8cd63e105bfc67aa3e96df0693b293c8
+
+
+Welcome to DevOps Training Program
+Github URL : https://github.com/Shyamsandeep28/socgen.git
+Date : 19/01/2026
+Topic : Git 
+----------------------------------------------
+
+apt update -y // Update the package list on the system before installing any software
+mkdir project // Create a new directory named "project" for Git practice
+cd project/ // Move inside the project directory
+git init // Initialize an empty Git repository
+git config --global user.name "sandeep" // Configure global Git username
+git config --global user.email "sandeep@gmail.com " // Configure global Git email
+vi login/php // Incorrect file path (used to explain command errors)
+ls // List files and directories
+vi login.php // Create or edit login.php file
+git add . // Add all files to the staging area
+git commit -m "this is my first commit" login.php // First commit for login.php
+ls // Verify files in the directory
+git status // Check working tree and staging status
+git show // Display details of the latest commit
+vi login.php // Modify the login.php file
+git status // Check modified file status
+git add login.php // Stage modified login.php
+git commit -m "this is my second commit" login.php // Second commit for login.php
+cd .git // Move into Git internal directory
+ls // List internal Git files and folders
+cd logs/ // Navigate to Git logs directory
+ls // List log files
+cat HEAD // Show the current HEAD reference
+cd .. // Move back to .git directory
+git show // Show last commit details
+git logs // Invalid command (used to explain correct Git syntax)
+git log // Display complete commit history
+git status // Check repository status
+vi catlog.php // Create or edit catlog.php file
+git status // Show untracked file
+git add . // Stage all files
+git status // Verify staged files
+git commit -m "new file commit" // Commit newly added file
+git status // Confirm clean working tree
+git log // View commit history
+git status // Correct command to check status
+vi login.php // Modify login.php again
+git status // Check file modification status
+git add login.php // Stage login.php
+git status // Verify staged changes
+vi login.php // Modify file without staging
+git status // Show staged and unstaged changes
+git diff login.php // Compare working directory with staging area
+gits status // Invalid command (used to explain command validation)
+git status // Check repository status
+git show // Show latest commit
+git diff --staged HEAD login.php // Compare staged changes with last commit
+git diff HEAD login.php // Compare working directory with last commit
+git log // Show commit history
+git log --oneline // Show commit history in one-line format
+git diff ad2067d b0ddc67 // Compare changes between two commits
+history // Show previously executed commands
+--------------------------------------------------
+
+Git Branching 
+-------------------------------
+   1  apt update -y
+    2  mkdir project
+    3  cd project/
+    4  git init
+    5  git config --global user.name "sandeep"
+    6  git config --global user.email "sandeep@gmail.com"
+    7  git config --list
+    8  git status
+    9  git branch
+   10  vi login.php
+   11  git add login.php
+   12  git status
+   13  git commit -m "my first commit" login.php
+   14  git branch
+   15  git log
+   16  git branch feature-1
+   17  git branch
+   18  git branch feature-2
+   19  git branch
+   20  git switch feature-1
+   21  git branch
+   22  ls
+   23  git log
+   24  git branch
+   25  vi feature-1-file
+   26  ls
+   27  git add feature-1-file
+   28  git status
+   29  git commit -m "this is feature-1-file commit" feature-1-file
+   30  git log
+   31  ls
+   32  git branch
+   33  git switch feature-2
+   34  git branch
+   35  ls
+   36  git log
+   37  vi feature-2-file
+   38  git add feature-2-file
+   39  git commit -m "this is feature-2-file commit" feature-2-file
+   40  git log
+   41  git branch
+   42  git switch master
+   43  ls
+   44  git log
+   45  ls
+   46  git merge feature-1
+   47  ls
+   48  git log
+   49  git merge feature-2
+   50  ls
+   51  git log
+   52  history
+   
+   --------------------------------------------------
+   Docker 
+   ------------------------------------------------------
+Docker Installation steps 
+OS : Ubuntu 22.04
+---------------------------------
+  117  apt update -y
+  118  docker --version
+  122  apt install docker.io -y
+  123  docker --version
+  124  systemctl status docker
+          
+          CTRL C
+    
+Docker baisc Commands
+------------------------------------------
+           sudo -i 
+  157  docker search ubuntu     // search image 
+  158  docker ps      // list all running containers
+  159  docker images   // list all images 
+  160  docker pull ubuntu    // pull image 
+  161  docker images
+  162  docker pull ubuntu:16.04   // pull images 
+  163  docker images
+ 
+  171  docker run -it --name c1 ubuntu     // create container
+  172  docker ps
+  173  docker ps -a     // list all containers
+   Note : go back to host machine ( write exit)
+  
+  174  docker start c1       
+  175  docker ps -a
+  177docker run -it --name c2 ubuntu:16.04  
+  178  docker ps
+  179  docker attach c1
+  180  docker attach c2
+  181  docker ps
+  182  docker stop c1
+  183  docker stop c2
+  184  docker ps -a
+  185  docker start c1 c2
+  186  docker ps -a
+  187  history
+      
+   194  docker ps -a
+  195  docker rm c3        // delete only stoped container 
+  196  docker ps -a
+  197  docker rm c2    
+  198  docker rm -f c2      // delete running container
+  199  docker ps -a
+  200  dockdr run -it --name c3 ubuntu
+  201  docker run -it --name c3 ubuntu
+  202  docker run -it --name c4 ubuntu
+  203  docker ps -a
+  204  docker rm -f $(docker ps -aq)     // delete all containers onces 
+  205  docker ps -a
+  206  history
+  207 docker inspect containername    // show the container information 
+  208 docker inspect imageimae // show the image information 
+   docker run -it --memory=512m --name c1 ubuntu
+   
+   Port mapping 
+   ------------------------
+   
+   port mapping 
+  ----------------------
+docker run -it --name webcontainer -p 8080:80 ubuntu
+ 
+ run below commands inside the container   
+  
+    1  apt update -y
+    2  apt install apache2 -y
+    3  service apache2 start
+    4  service apache2 status
+    5  cd /var
+    6  ls
+    7  cd www
+    8  ls
+    9  cd html/
+   10  ls
+   11  echo "<h> welcome to container's application </h>" >index.html
+   12  history
+   
+   
+   
+   
+   docker run -it --name dbcontainer -p 8081:80 ubuntu
+ 
+ run below commands inside the container   
+  
+    1  apt update -y
+    2  apt install apache2 -y
+    3  service apache2 start
+    4  service apache2 status
+    ---------------------------------------------
+    
+    Docker Volume 
+    ------------------------------
+     243  docker volume
+  244  docker volume ls
+  250  docker volume create myvolume
+  251  docker volume ls
+  252  cd /var/lib/docker/
+  253  ls
+  254  cd volumes/
+  255  ls
+  256  cd ls
+  257  cd myvolume/
+  258  ls
+  259  cd _data/
+  260  ls
+  261  cat >>volume.txt    
+        //write some data 
+  262  cd
+    264  docker volume ls
+  267  docker run -it --name newcontainer -v myvolume:/volumedata ubuntu
+  268  docker run -it --name dbcontainer -v myvolume:/data ubuntu
+  269  docker ps
+  270  docker rm -f newcontainer dbcontainer
+  271  cd /var/lib/docker/volumes/myvolume/_data/
+  272  ls
+  273  hisstory
+  274  cd
+  275  history
+
+  
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
